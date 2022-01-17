@@ -1,5 +1,5 @@
 /* Making our own custon filter and adding it to Array prototype*/
-/*Note: do not use array function, this behaviour of this will be changed */
+/*Note: do not use arrow function, behaviour of this will be changed */
 
 Array.prototype.myFilter = function (callBack) {
     const result = [];
