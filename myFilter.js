@@ -1,4 +1,4 @@
-/* Making our own custon filter and adding it to Array prototype*/
+/* Making our own custom filter and adding it to Array prototype*/
 /*Note: do not use arrow function, behaviour of this will be changed */
 
 Array.prototype.myFilter = function (callBack) {
@@ -8,20 +8,15 @@ Array.prototype.myFilter = function (callBack) {
         callBack(item) && result.push(item);
 
     return result;
-}
+};
 
 /* filter even numbers */
-console.log([1, 2, 3, 4, 5, 6, 7, 8, 9, 10].myFilter((element) => {
-    return element % 2 == 0;
-}))
+console.log([1, 2, 3, 4, 5, 6, 7, 8, 9, 10].myFilter(val => val % 2 === 0));
 /* filter odd numbers */
-console.log([1, 2, 3, 4, 5, 6, 7, 8, 9, 10].myFilter((element) => {
-    return element % 2 !== 0;
-}))
+console.log([1, 2, 3, 4, 5, 6, 7, 8, 9, 10].myFilter(val => val % 2 !== 0));
 /* filter multiples of three */
-console.log([1, 2, 3, 4, 5, 6, 7, 8, 9, 10].myFilter((element) => {
-    return element % 3 == 0;
-}))
+console.log([1, 2, 3, 4, 5, 6, 7, 8, 9, 10].myFilter(val => val % 3 == 0));
+
 
 const students = [
     { name: "Aleem", age: 20, department: "CSE" },
@@ -34,6 +29,5 @@ const students = [
     { name: "Arsalan", age: 22, department: "CSE" }
 ];
 
-console.log(students.myFilter((student) => {
-    return student.department === "CSE"
-}))
+/* filter CSE students and print their names */
+students.myFilter(student => student.department === "CSE").forEach(student => console.log(student.name));
