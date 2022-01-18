@@ -1,25 +1,27 @@
 function myParseFloat(str) {
-    var result = 0;
+    let result = 0;
 
-    var index = 0;
-    while (str[index] != ".") index++;
+    // let index = 0;
+    // while (str[index] != ".") index++;
 
-    var nonDecimalPart = str.substring(0, index);
-    var decimalPart = str.substring(index + 1);
+    const [nonDecimalPart, decimalPart] = str.split('.');
 
-    var decimalPartMultiplier = 0.1;
-    var nonDecimalPartMultiplier = 1;
+    // let nonDecimalPart = str.substring(0, index);
+    // let decimalPart = str.substring(index + 1);
 
-    index = nonDecimalPart.length - 1;
+    let decimalPartMultiplier = 0.1;
+    let nonDecimalPartMultiplier = 1;
+
+    let index = nonDecimalPart.length - 1;
     while (index >= 0) {
-        result += parseInt(nonDecimalPart[index]) * nonDecimalPartMultiplier;
+        result += nonDecimalPart[index] * nonDecimalPartMultiplier;
         nonDecimalPartMultiplier *= 10;
         index--;
     }
 
     index = 0;
     while (index < decimalPart.length) {
-        result += parseInt(decimalPart[index]) * decimalPartMultiplier;
+        result += decimalPart[index] * decimalPartMultiplier;
         decimalPartMultiplier /= 10;
         index++;
     }
@@ -27,5 +29,5 @@ function myParseFloat(str) {
     return result;
 }
 
-var ans = myParseFloat("507.234");
+let ans = myParseFloat("507.234");
 console.log(ans, "-> Typeof is ->", typeof ans);
